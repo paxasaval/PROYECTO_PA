@@ -17,14 +17,14 @@ import java.util.ArrayList;
  */
 public class ManCliente {
     
-    public Cliente NuevoCliente (int NumTarjeta, int Clave, String Direccion, String mail, int telefono, 
+    public Cliente NuevoCliente (long NumTarjeta, int Clave, String Direccion, String mail, int telefono, 
             String Cedula, String PrimApellido, String SegApellido, String PrimNombre, String SegNombre) {
         Cliente objCli = new Cliente(NumTarjeta, Clave, Direccion, mail, telefono, Cedula, PrimApellido, SegApellido, 
                 PrimNombre, SegNombre);
         return objCli;
     }
     
-    public ArrayList<Cliente> AgregarCliente (ArrayList ArrayCliente, int NumTarjeta, int Clave, String Direccion, String mail, int telefono, 
+    public ArrayList<Cliente> AgregarCliente (ArrayList ArrayCliente, long NumTarjeta, int Clave, String Direccion, String mail, int telefono, 
             String Cedula, String PrimApellido, String SegApellido, String PrimNombre, String SegNombre){
         Cliente objCli = new Cliente(NumTarjeta, Clave, Direccion, mail, telefono, Cedula, PrimApellido, SegApellido, 
                 PrimNombre, SegNombre);

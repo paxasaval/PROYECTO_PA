@@ -21,7 +21,7 @@ public class PreListar {
     public static ArrayList<Restaurante> ImportarPreVisualizacion(ArrayList<Restaurante> ArrayRestaurante) {
 //        ArrayList<Restaurante> ArrayRestaurante = new ArrayList<Restaurante>();
 //        File f = new File("C:/Users/Jorge/Documents/NetBeansProjects/PROYECTO/Lista_Restaurante.txt");        
-        File f = new File("DATA/Restaurantes.txt");
+        File f = new File("data/Restaurantes.txt");
         StringTokenizer st;
         Scanner entrada = null;
         String sCadena;

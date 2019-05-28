@@ -8,7 +8,7 @@ import java.util.*;
  */
 public class Cliente extends Personas {
 
-    public int NumTarjeta;
+    public long NumTarjeta;
     public int Clave;
     public String Direccion;
     public String mail;
@@ -20,7 +20,7 @@ public class Cliente extends Personas {
     public Cliente() {
     }
 
-    public Cliente(int NumTarjeta, int Clave, String Direccion, String mail, int telefono, String Cedula, 
+    public Cliente(long NumTarjeta, int Clave, String Direccion, String mail, int telefono, String Cedula, 
             String PrimApellido, String SegApellido, String PrimNombre, String SegNombre) {
         super(Cedula, PrimApellido, SegApellido, PrimNombre, SegNombre);
         this.NumTarjeta = NumTarjeta;
@@ -34,7 +34,7 @@ public class Cliente extends Personas {
         super(cedula, PrimApellido, SegApellido, PrimNombre, SegNombre);
     }
 
-    public void setNumTarjeta(int NumTarjeta) {
+    public void setNumTarjeta(long NumTarjeta) {
         this.NumTarjeta = NumTarjeta;
     }
 
@@ -74,7 +74,7 @@ public class Cliente extends Personas {
         this.SegNombre = SegNombre;
     }
 
-    public int getNumTarjeta() {
+    public long getNumTarjeta() {
         return NumTarjeta;
     }
 
@@ -123,11 +123,6 @@ public class Cliente extends Personas {
     }
 
     
-    
-    @Override
-    public String toString() {
-        return "Cliente{" + "NumTarjeta=" + NumTarjeta + ", Clave=" + Clave + ", Direccion=" + Direccion + ", mail=" + mail + ", telefono=" + telefono + '}';
-    }
 
     
 

@@ -7,9 +7,14 @@ package GUI;
 
 import Clases.Cliente;
 import Clases.Personas;
+import DATA.ListarCliente;
+import DATA.PreListar;
 import LOGICA.Expresiones;
 import LOGICA.ManCliente;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -179,34 +184,51 @@ public class Pantalla_Registro extends javax.swing.JFrame {
     private void jButtonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarseActionPerformed
         // TODO add your handling code here:
         Cliente objCli = new Cliente();
+        ListarCliente lis=new ListarCliente();
+        
 //        Personas objPer = new Personas();
-        this.objManCli.AgregarCliente(ArrayCliente, Integer.valueOf(this.jTextFieldTarjeta.getText()), Integer.valueOf(this.jTextFieldContraseña.getText()), this.jTextFieldDireccion.getText(),
+        objCli=this.objManCli.NuevoCliente(Long.valueOf(this.jTextFieldTarjeta.getText()), Integer.valueOf(this.jTextFieldContraseña.getText()), this.jTextFieldDireccion.getText(),
+                this.jTextFieldCorreo.getText(), Integer.valueOf(this.jTextFieldTelefono.getText()), this.jTextFieldCedula.getText(),
+                this.jTextFieldPrimApellido.getText(), this.jTextFieldSegApellido.getText(),
+                this.jTextFieldPrimNombre.getText(), this.jTextFieldSegNombre.getText());
+
+        this.objManCli.AgregarCliente(ArrayCliente,Long.valueOf(this.jTextFieldTarjeta.getText()), Integer.valueOf(this.jTextFieldContraseña.getText()), this.jTextFieldDireccion.getText(),
                 this.jTextFieldCorreo.getText(), Integer.valueOf(this.jTextFieldTelefono.getText()), this.jTextFieldCedula.getText(),
                 this.jTextFieldPrimApellido.getText(), this.jTextFieldSegApellido.getText(),
                 this.jTextFieldPrimNombre.getText(), this.jTextFieldSegNombre.getText());
         Pantalla_Principal objPanPrin = new Pantalla_Principal();
 
         System.out.println("USUARIO REGISTRADO CON EXITO");
-//        System.out.println(objPer.toString());
+        try {
+            //        System.out.println(objPer.toString());
 //        System.out.println(objCli.toString());
-
+lis.escribirCliente(objCli);
+        } catch (IOException ex) {
+            Logger.getLogger(Pantalla_Registro.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButtonRegistrarseActionPerformed
 
     private void jButtonRevisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRevisarActionPerformed
         // TODO add your handling code here:
         Expresiones comprobar = new Expresiones();
         Cliente objCli = new Cliente();
-        if (this.jTextFieldPrimNombre.getText().isEmpty() || this.jTextFieldSegNombre.getText().isEmpty()
-                || this.jTextFieldPrimApellido.getText().isEmpty() || this.jTextFieldSegApellido.getText().isEmpty()
-                || (this.jTextFieldCedula.getText().isEmpty())
-                || (this.jTextFieldTarjeta.getText().isEmpty())
-                || (this.jTextFieldCorreo.getText().isEmpty())
-                || (this.jTextFieldContraseña.getText().isEmpty())) {
+        if (this.jTextFieldPrimNombre.getText().isEmpty()
+                
+                || this.jTextFieldSegNombre.getText().isEmpty()
+                || this.jTextFieldPrimApellido.getText().isEmpty() 
+                || this.jTextFieldSegApellido.getText().isEmpty()
+                || this.jTextFieldCedula.getText().isEmpty()
+                || this.jTextFieldTarjeta.getText().isEmpty()
+                || this.jTextFieldTelefono.getText().isEmpty()
+                || this.jTextFieldCorreo.getText().isEmpty()
+               || (this.jTextFieldContraseña.getText().isEmpty())) {
             JOptionPane.showMessageDialog(null, "TIENE CAMPOS FALTANTES POR LLENAR");
         } else if (!comprobar.numeroCedula(this.jTextFieldCedula.getText())){
             JOptionPane.showMessageDialog(null, "CEDULA INVALIDA");
         }else if(!comprobar.numeroTarjeta(this.jTextFieldTarjeta.getText())){
             JOptionPane.showMessageDialog(null, "NUMERO DE TARJETA INVALIDO");
+        }else if(!comprobar.numeroCelular(this.jTextFieldTelefono.getText())){
+            JOptionPane.showMessageDialog(null, "NUMERO DE TELEFONO INVALIDO");
         }else if(!comprobar.mailValiodo(this.jTextFieldCorreo.getText())){
             JOptionPane.showMessageDialog(null, "CORREO ELECTRONICO INVALIDO");
         }else if(!comprobar.contrasenia(this.jTextFieldContraseña.getText())){

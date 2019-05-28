@@ -20,7 +20,7 @@ import java.util.StringTokenizer;
 public class Imp_Combos {
 
     public ArrayList<Plato> Combos_Kfc(ArrayList<Plato> ArrayPlatoKfc) {
-        File f = new File("/Combos_Kfc.txt");
+        File f = new File("data/Combos_Kfc.txt");
         StringTokenizer st;
         Scanner entrada = null;
         String sCadena;
