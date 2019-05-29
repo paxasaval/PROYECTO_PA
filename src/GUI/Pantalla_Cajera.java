@@ -99,8 +99,7 @@ public class Pantalla_Cajera extends javax.swing.JFrame {
         for (Plato objPla : ArrayPlato) {
             String NewValor[] = {objPla.getNombre_Plato(), Integer.toString((int)(objPla.getPrecio())), objPla.getDetalle(),
                 Integer.toString(objPla.pedido.getNumMesa()),Integer.toString(objPla.pedido.getTiempo_Espera()),
-                Integer.toString(objPla.pedido.getNumOrden()), objPla.pedido.getEstado()
-                
+                Integer.toString(objPla.pedido.getNumOrden()), objPla.pedido.getEstado()               
             };
             modelo.addRow(NewValor);
         }

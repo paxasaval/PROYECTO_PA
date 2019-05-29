@@ -25,25 +25,25 @@ import javax.annotation.processing.FilerException;
  * @author Jorge
  */
 public class ListarCliente {
-    
-    public static ArrayList<Cliente> ImportarUsuarios(ArrayList<Cliente> ArrayCliente){   
+
+    public static ArrayList<Cliente> ImportarUsuarios(ArrayList<Cliente> ArrayCliente) {
 //        ArrayList<Restaurante> ArrayRestaurante = new ArrayList<Restaurante>();
 //        File f = new File("C:/Users/Jorge/Documents/NetBeansProjects/PROYECTO/Lista_Restaurante.txt");        
-        File f = new File("data/Usuarios_Factura.txt");        
+        File f = new File("data/Usuarios_Factura.txt");
         StringTokenizer st;
         Scanner entrada = null;
         String sCadena;
         try {
             entrada = new Scanner(f);
-            while (entrada.hasNext()) {            
+            while (entrada.hasNext()) {
                 sCadena = entrada.nextLine();
                 st = new StringTokenizer(sCadena, ",");
-                while (st.hasMoreTokens()){
+                while (st.hasMoreTokens()) {
 //                    Restaurante objTmpCli = new Restaurante(st.nextToken(),st.nextToken(), st.nextToken());
-                    Cliente objTmpCli = new Cliente(st.nextToken(),st.nextToken(), st.nextToken(), st.nextToken(), st.nextToken());
+                    Cliente objTmpCli = new Cliente(st.nextToken(), st.nextToken(), st.nextToken(), st.nextToken(), st.nextToken());
                     ArrayCliente.add(objTmpCli);
                 }
-            }                      
+            }
         } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
         } finally {
@@ -57,39 +57,70 @@ public class ListarCliente {
         }
         return ArrayCliente;
     }
-    public void escribirCliente(Cliente cliente) throws IOException{
+
+    public void escribirCliente(Cliente cliente) throws IOException {
         File archivo;
         FileWriter escribir;
         PrintWriter linea;
-    
+
         archivo = new File("data/Clientes.txt");
-        
-        if(!archivo.exists()){
-            try{
+
+        if (!archivo.exists()) {
+            try {
 //            archivo.createNewFile();
-            escribir =new FileWriter(archivo,true);
-            linea=new PrintWriter(escribir);
-            linea.println(cliente);
-            linea.close();
-            escribir.close();
-            }catch(FileNotFoundException ex){
-                System.out.println("error1"+ex);
+                escribir = new FileWriter(archivo, true);
+                linea = new PrintWriter(escribir);
+                linea.println(cliente);
+                linea.close();
+                escribir.close();
+            } catch (FileNotFoundException ex) {
+                System.out.println("error1" + ex);
             }
-        }else{
-              try{
-            
-            escribir =new FileWriter(archivo,true);
-            linea=new PrintWriter(escribir);
-            linea.println(cliente.PrimNombre+";"+cliente.SegNombre+";"+cliente.PrimApellido+";"+cliente.SegApellido+";"
-            +String.valueOf(cliente.NumTarjeta)+";"+String.valueOf(cliente.Clave)+";"+cliente.Direccion+";"+cliente.mail+";"+String.valueOf(cliente.telefono)+";"+cliente.Cedula);
-             linea.close();
-            escribir.close();
-            }catch(FileNotFoundException ex){
-               System.out.println("error2"+ex);
+        } else {
+            try {
+
+                escribir = new FileWriter(archivo, true);
+                linea = new PrintWriter(escribir);
+                linea.println(cliente.PrimNombre + ";" + cliente.SegNombre + ";" + cliente.PrimApellido + ";" + cliente.SegApellido + ";"
+                        + String.valueOf(cliente.NumTarjeta) + ";" + String.valueOf(cliente.Clave) + ";" + cliente.Direccion + ";" + cliente.mail + ";" + String.valueOf(cliente.telefono) + ";" + cliente.Cedula);
+                linea.close();
+                escribir.close();
+            } catch (FileNotFoundException ex) {
+                System.out.println("error2" + ex);
             }
         }
-        
-    
-    
-}
+
     }
+
+    public void escribirUsuario(Usuario usuario) throws IOException {
+        File archivo;
+        FileWriter escribir;
+        PrintWriter linea;
+
+        archivo = new File("data/Usuarios1.txt");
+
+        if (!archivo.exists()) {
+            try {
+//            archivo.createNewFile();
+                escribir = new FileWriter(archivo, true);
+                linea = new PrintWriter(escribir);
+                linea.println(usuario);
+                linea.close();
+                escribir.close();
+            } catch (FileNotFoundException ex) {
+                System.out.println("error1" + ex);
+            }
+        } else {
+            try {
+
+                escribir = new FileWriter(archivo, true);
+                linea = new PrintWriter(escribir);
+                linea.println("," + usuario.getCedula() + "," + usuario.getClaveAcceso());
+                linea.close();
+                escribir.close();
+            } catch (FileNotFoundException ex) {
+                System.out.println("error2" + ex);
+            }
+        }
+    }
+}

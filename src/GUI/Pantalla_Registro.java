@@ -7,10 +7,12 @@ package GUI;
 
 import Clases.Cliente;
 import Clases.Personas;
+import Clases.Usuario;
 import DATA.ListarCliente;
 import DATA.PreListar;
 import LOGICA.Expresiones;
 import LOGICA.ManCliente;
+import LOGICA.ManUsuario;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -24,7 +26,9 @@ import javax.swing.JOptionPane;
 public class Pantalla_Registro extends javax.swing.JFrame {
 
     ManCliente objManCli = new ManCliente();
+    ManUsuario objManUsu = new ManUsuario();
     ArrayList<Cliente> ArrayCliente = new ArrayList<>();
+    ArrayList<Usuario> ArrayUsuario = new ArrayList<>();
 
     /**
      * Creates new form Pantalla_Registro
@@ -184,18 +188,25 @@ public class Pantalla_Registro extends javax.swing.JFrame {
     private void jButtonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarseActionPerformed
         // TODO add your handling code here:
         Cliente objCli = new Cliente();
+        Usuario objUsu = new Usuario();
         ListarCliente lis=new ListarCliente();
+        
         
 //        Personas objPer = new Personas();
         objCli=this.objManCli.NuevoCliente(Long.valueOf(this.jTextFieldTarjeta.getText()), Integer.valueOf(this.jTextFieldContraseña.getText()), this.jTextFieldDireccion.getText(),
                 this.jTextFieldCorreo.getText(), Integer.valueOf(this.jTextFieldTelefono.getText()), this.jTextFieldCedula.getText(),
                 this.jTextFieldPrimApellido.getText(), this.jTextFieldSegApellido.getText(),
                 this.jTextFieldPrimNombre.getText(), this.jTextFieldSegNombre.getText());
+        
+        objUsu = this.objManUsu.CrearUsuario(this.jTextFieldCedula.getText(), this.jTextFieldContraseña.getText());
 
         this.objManCli.AgregarCliente(ArrayCliente,Long.valueOf(this.jTextFieldTarjeta.getText()), Integer.valueOf(this.jTextFieldContraseña.getText()), this.jTextFieldDireccion.getText(),
                 this.jTextFieldCorreo.getText(), Integer.valueOf(this.jTextFieldTelefono.getText()), this.jTextFieldCedula.getText(),
                 this.jTextFieldPrimApellido.getText(), this.jTextFieldSegApellido.getText(),
                 this.jTextFieldPrimNombre.getText(), this.jTextFieldSegNombre.getText());
+        
+        this.objManUsu.AgregarUsuario(ArrayUsuario, this.jTextFieldCedula.getText(), this.jTextFieldContraseña.getText());
+        
         Pantalla_Principal objPanPrin = new Pantalla_Principal();
 
         System.out.println("USUARIO REGISTRADO CON EXITO");
@@ -203,6 +214,14 @@ public class Pantalla_Registro extends javax.swing.JFrame {
             //        System.out.println(objPer.toString());
 //        System.out.println(objCli.toString());
             lis.escribirCliente(objCli);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Pantalla_Registro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            //        System.out.println(objPer.toString());
+//        System.out.println(objCli.toString());
+            lis.escribirUsuario(objUsu);
         } catch (IOException ex) {
             Logger.getLogger(Pantalla_Registro.class.getName()).log(Level.SEVERE, null, ex);
         }

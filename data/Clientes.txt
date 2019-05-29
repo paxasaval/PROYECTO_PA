@@ -1,3 +1,6 @@
 Paul;Xavier;Sanchez;Valverde;4485715860868875;12345678;Ciudad Alegria Edificio 8, Dept. 201;paxasaval1003@gmail.com;968125982;1105795569
 john;stiven;narvaez;castillo;1234567891234567;12345678;daniel alvarez;johnnarvaez343@gmail.com;980448332;1105761686
 jean;pierre;chuquimarca;flores;8956324568945612;12345678;Lor Operadores;jpchuquimarca@utpl.edu.ec;987463831;1105094021
+LUIS;ALFREDO;CUENTAS;PALACIOS;8956324568945612;98765432;YAHUARCINA;ejemplo@gmail.com;999556888;1103211668
+asdasd;adasda;dfgdfgdf;fghfhg;8956324568945612;9876543;pradera;ejemplo2@gmail.com;999556988;1150088050
+asdasd;adasda;dfgdfgdf;fghfhg;8956324568945612;9876543;pradera;ejemplo2@gmail.com;2102155333;1150088050

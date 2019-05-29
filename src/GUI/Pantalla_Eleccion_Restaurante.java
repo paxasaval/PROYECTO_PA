@@ -292,9 +292,9 @@ public class Pantalla_Eleccion_Restaurante extends javax.swing.JFrame {
                     this.jTable1.getValueAt(0, 2), objPed);
             
             this.objManPla.AgregarPlato(ArrayPlatoKfc, this.jTable1.getValueAt(0, 0), this.jTable1.getValueAt(0, 1), 
-                    this.jTable1.getValueAt(0, 2), objPed);
+                    this.jTable1.getValueAt(0, 2), objPed);  
             
-            JOptionPane.showMessageDialog(null, "USUARIO REGISTRADO CON EXITO");
+            JOptionPane.showMessageDialog(null, "ORDEN ENVIADA CON EXITO");
         try {
             //        System.out.println(objPer.toString());
 //        System.out.println(objCli.toString());

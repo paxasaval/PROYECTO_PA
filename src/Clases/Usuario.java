@@ -11,15 +11,24 @@ package Clases;
  */
 public class Usuario {
     
-    public String usuario, claveAcceso;
+    public String cedula, claveAcceso;
 
     public Usuario() {
     }
 
-    public Usuario(String usuario, String claveAcceso) {
-        this.usuario = usuario;
+    public Usuario(String cedula, String claveAcceso) {
+        this.cedula = cedula;
         this.claveAcceso = claveAcceso;
     }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public String getClaveAcceso() {
+        return claveAcceso;
+    }
+    
     
     
 }
