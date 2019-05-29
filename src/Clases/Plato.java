@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Plato {
 
-     public String Nombre_Plato;
+    public String Nombre_Plato;
     public String Precio;
     public String Detalle;
     

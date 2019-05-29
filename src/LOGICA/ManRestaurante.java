@@ -34,4 +34,17 @@ public class ManRestaurante {
         return ArrayRestaurante;
     }
     
+    public String[] listarRestaurantes(){
+        ArrayList<Restaurante> ArrayRestaurante = new ArrayList<Restaurante>();
+        String[] cabecera = new String[ArrayRestaurante.size()];
+        ArrayList<String> list = new ArrayList<String>();
+        PreListar objPreLis = new PreListar();
+        objPreLis.ImportarPreVisualizacion(ArrayRestaurante);
+        for(Restaurante res:ArrayRestaurante){
+            list.add(res.Nombre_Res);
+        }
+        list.toArray(cabecera);
+        return cabecera;
+    }
+    
 }

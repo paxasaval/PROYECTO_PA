@@ -8,8 +8,10 @@ package GUI;
 import Clases.Plato;
 import Clases.Restaurante;
 import LOGICA.ManPlato;
+import LOGICA.ManRestaurante;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -47,6 +49,7 @@ public class Pantalla_Kfc extends javax.swing.JFrame {
         jSpinner1 = new javax.swing.JSpinner();
         jLabel3 = new javax.swing.JLabel();
         jButtonProcesar = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -61,6 +64,9 @@ public class Pantalla_Kfc extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jTextFieldTotalPagar = new javax.swing.JTextField();
         jButtonEnviarPedido = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -69,16 +75,16 @@ public class Pantalla_Kfc extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 48)); // NOI18N
-        jLabel1.setText("Bienvenidos a KFC");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
+        jLabel1.setText("BOULEVAR DEL RIO");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 740, 80));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1280, 80));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jLabel2.setText("Por favor, elija uno de nuestros combos");
+        jLabel2.setText("Seleccione un restaurante ");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -99,7 +105,7 @@ public class Pantalla_Kfc extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 670, 80));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 1220, 90));
 
         jButtonListar.setText("Listar");
         jButtonListar.addActionListener(new java.awt.event.ActionListener() {
@@ -107,12 +113,12 @@ public class Pantalla_Kfc extends javax.swing.JFrame {
                 jButtonListarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, -1, -1));
+        jPanel2.add(jButtonListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 10, -1, -1));
         jPanel2.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 60, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel3.setText("Cantidad a pedir");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
         jButtonProcesar.setText("Procesar");
         jButtonProcesar.addActionListener(new java.awt.event.ActionListener() {
@@ -122,14 +128,21 @@ public class Pantalla_Kfc extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonProcesar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, -1, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 740, 210));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 140, -1));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 1280, 210));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
         jLabel4.setText("DATOS DEL PEDIDO");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel5.setText("Combo (N°)");
@@ -147,33 +160,52 @@ public class Pantalla_Kfc extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel7.setText("Detalles");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
         jTextAreaDetalle.setEditable(false);
         jTextAreaDetalle.setColumns(20);
         jTextAreaDetalle.setRows(5);
         jScrollPane2.setViewportView(jTextAreaDetalle);
 
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, -1, -1));
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 90, 200, 130));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel8.setText("Precio Unitario");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, -1, -1));
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, -1, -1));
 
         jTextFieldPrecioUnitario.setEditable(false);
-        jPanel3.add(jTextFieldPrecioUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, 90, -1));
+        jPanel3.add(jTextFieldPrecioUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 90, -1));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel9.setText("Total a pagar");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, -1, -1));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, -1, -1));
 
         jTextFieldTotalPagar.setEditable(false);
-        jPanel3.add(jTextFieldTotalPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, 90, -1));
+        jPanel3.add(jTextFieldTotalPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 90, -1));
 
         jButtonEnviarPedido.setText("Enviar Pedido");
-        jPanel3.add(jButtonEnviarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, -1, -1));
+        jPanel3.add(jButtonEnviarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 210, -1, -1));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 740, 270));
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable2);
+
+        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, 690, 170));
+
+        jToggleButton1.setSelected(true);
+        jToggleButton1.setText("Cargar a carrito");
+        jPanel3.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, -1, -1));
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 1280, 270));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -224,6 +256,10 @@ public class Pantalla_Kfc extends javax.swing.JFrame {
         this.jTextFieldCantidad.setText(this.jSpinner1.getValue().toString());
     }//GEN-LAST:event_jButtonProcesarActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -263,6 +299,7 @@ public class Pantalla_Kfc extends javax.swing.JFrame {
     private javax.swing.JButton jButtonEnviarPedido;
     private javax.swing.JButton jButtonListar;
     private javax.swing.JButton jButtonProcesar;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -277,12 +314,15 @@ public class Pantalla_Kfc extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextAreaDetalle;
     private javax.swing.JTextField jTextFieldCantidad;
     private javax.swing.JTextField jTextFieldCombo;
     private javax.swing.JTextField jTextFieldPrecioUnitario;
     private javax.swing.JTextField jTextFieldTotalPagar;
+    private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
 }
