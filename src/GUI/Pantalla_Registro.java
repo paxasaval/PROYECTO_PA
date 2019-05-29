@@ -202,7 +202,7 @@ public class Pantalla_Registro extends javax.swing.JFrame {
         try {
             //        System.out.println(objPer.toString());
 //        System.out.println(objCli.toString());
-lis.escribirCliente(objCli);
+            lis.escribirCliente(objCli);
         } catch (IOException ex) {
             Logger.getLogger(Pantalla_Registro.class.getName()).log(Level.SEVERE, null, ex);
         }

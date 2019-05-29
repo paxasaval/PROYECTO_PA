@@ -5,27 +5,38 @@
  */
 package GUI;
 
+import Clases.Pedido;
 import Clases.Plato;
 import Clases.Restaurante;
+import DATA.ListarPedidos;
 import LOGICA.ManPlato;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Jorge
  */
-public class Pantalla_Kfc extends javax.swing.JFrame {
+public class Pantalla_Eleccion_Restaurante extends javax.swing.JFrame {
+
     ArrayList<Plato> ArrayPlatoKfc = new ArrayList<>();
+    ArrayList<Plato> ArrayPlatoFogon = new ArrayList<>();
     ManPlato objManPla = new ManPlato();
+    Pedido objPed = new Pedido();
+    Plato objPla = new Plato();
     int selected = -1;
 
     /**
      * Creates new form Pantalla_Kfc
      */
-    public Pantalla_Kfc() {
+    public Pantalla_Eleccion_Restaurante() {
         initComponents();
-        ArrayPlatoKfc = objManPla.ImportarCombo(ArrayPlatoKfc);
+        ArrayPlatoKfc = objManPla.ImportarCombo_Kfc(ArrayPlatoKfc);
+        ArrayPlatoFogon = objManPla.ImportarCombo_Fogon(ArrayPlatoFogon);
     }
 
     /**
@@ -47,6 +58,8 @@ public class Pantalla_Kfc extends javax.swing.JFrame {
         jSpinner1 = new javax.swing.JSpinner();
         jLabel3 = new javax.swing.JLabel();
         jButtonProcesar = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jTextFieldNumMesa = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -61,6 +74,9 @@ public class Pantalla_Kfc extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jTextFieldTotalPagar = new javax.swing.JTextField();
         jButtonEnviarPedido = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jComboBoxRest = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -69,8 +85,8 @@ public class Pantalla_Kfc extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 48)); // NOI18N
-        jLabel1.setText("Bienvenidos a KFC");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
+        jLabel1.setText("Bienvenidos");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 740, 80));
 
@@ -122,7 +138,12 @@ public class Pantalla_Kfc extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonProcesar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, -1, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 740, 210));
+        jLabel11.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        jLabel11.setText("NÚMERO DE MESA");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, -1, -1));
+        jPanel2.add(jTextFieldNumMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 90, -1));
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 740, 210));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -171,9 +192,26 @@ public class Pantalla_Kfc extends javax.swing.JFrame {
         jPanel3.add(jTextFieldTotalPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, 90, -1));
 
         jButtonEnviarPedido.setText("Enviar Pedido");
+        jButtonEnviarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEnviarPedidoActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButtonEnviarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, -1, -1));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 740, 270));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 740, 270));
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
+        jLabel10.setText("POR FAVOR, ELIJA UN RESTAURANTE");
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        jComboBoxRest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----NINGUNO-----", "KFC", "FOGON GRILL", "ARTESANALE" }));
+        jPanel4.add(jComboBoxRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 180, -1));
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 740, 80));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -181,48 +219,107 @@ public class Pantalla_Kfc extends javax.swing.JFrame {
     private void jButtonListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarActionPerformed
         // TODO add your handling code here:
         jTable1.removeAll();
-        Object columnas[] = {"N° COMBO","PRECIO COMBO","DESCRIPCION"};
-        DefaultTableModel modelo = new DefaultTableModel(null, columnas);            
+        Object columnas[] = {"N° COMBO", "PRECIO COMBO", "DESCRIPCION"};
+        DefaultTableModel modelo = new DefaultTableModel(null, columnas);
         jTable1.setModel(modelo);
-        for (Plato objPla: ArrayPlatoKfc){
-                String NewValor[] = {objPla.getNombre_Plato(), (objPla.getPrecio()), objPla.getDetalle()
-                                };
+        if (this.jComboBoxRest.getSelectedIndex() == 1) {
+            for (Plato objPla : ArrayPlatoKfc) {
+                String NewValor[] = {objPla.getNombre_Plato(), Integer.toString((int) objPla.getPrecio()), objPla.getDetalle()
+                };
                 modelo.addRow(NewValor);
             }
+        }
+
+        if (this.jComboBoxRest.getSelectedIndex() == 2) {
+            for (Plato objPla : ArrayPlatoFogon) {
+                String NewValor[] = {objPla.getNombre_Plato(), Integer.toString((int)objPla.getPrecio()), objPla.getDetalle()
+                };
+                modelo.addRow(NewValor);
+            }
+        }
     }//GEN-LAST:event_jButtonListarActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
         selected = jTable1.getSelectedRow();
-        this.jTextFieldCombo.setText(jTable1.getValueAt(selected,0).toString());
-        this.jTextFieldPrecioUnitario.setText(jTable1.getValueAt(selected,1).toString());
-        this.jTextAreaDetalle.setText(jTable1.getValueAt(selected,2).toString());
-        
+        this.jTextFieldCombo.setText(jTable1.getValueAt(selected, 0).toString());
+        this.jTextFieldPrecioUnitario.setText(jTable1.getValueAt(selected, 1).toString());
+        this.jTextAreaDetalle.setText(jTable1.getValueAt(selected, 2).toString());
+
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButtonProcesarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonProcesarActionPerformed
         // TODO add your handling code here:
         int valor = Integer.parseInt(this.jSpinner1.getValue().toString());
-        
-        double Total = 0;
-        if(valor > 0){
-            if(this.jTable1.getValueAt(0, 0).equals("Combo1")){
-                Total = 2.50 * valor;
-                this.jTextFieldTotalPagar.setText(Integer.toString((int)(Total)));
-                this.jButtonProcesar.setEnabled(false);
+        int aux = 0;
+
+        int Total = 0;
+//        if (this.jComboBoxRest.getSelectedIndex() == 1) {
+            
+            if (valor > 0) {
+                if (this.jTable1.getValueAt(0, 0).equals("Combo1")) {
+                    Total = Integer.valueOf(this.jTextFieldPrecioUnitario.getText()) * valor;
+                    aux = aux + Total;
+                }
+                if (this.jTable1.getValueAt(1, 0).equals("Combo2")) {
+                    Total = Integer.valueOf(this.jTextFieldPrecioUnitario.getText()) * valor;                   
+                }
+                if (this.jTable1.getValueAt(2, 0).equals("Combo3")) {
+                    Total = Integer.valueOf(this.jTextFieldPrecioUnitario.getText()) * valor;
+                    
+                }
                 
             }
-            if(this.jTable1.getValueAt(1, 0).equals("Combo2")){
-                Total = 3.00 * valor;
-                this.jTextFieldTotalPagar.setText(Integer.toString((int)(Total)));
-            }
-            if(this.jTable1.getValueAt(2, 0).equals("Combo3")){
-                Total = 4.00 * valor;
-                this.jTextFieldTotalPagar.setText(Integer.toString((int)(Total)));
-            }
-        }      
+//        }
+        
         this.jTextFieldCantidad.setText(this.jSpinner1.getValue().toString());
+        this.jTextFieldTotalPagar.setText(Integer.toString((int) Total));
     }//GEN-LAST:event_jButtonProcesarActionPerformed
+
+    private void jButtonEnviarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnviarPedidoActionPerformed
+        // TODO add your handling code here:
+        int aux=0; 
+        int valorActu = Integer.valueOf(this.jTextFieldTotalPagar.getText());
+        
+        
+        if(JOptionPane.showConfirmDialog(null, "¿ESTA SEGURO DE SU PEDIDO?", "\tALERTA DE CAMBIO", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
+            JOptionPane.showMessageDialog(null, "SE ENVIO SU PEDIDO CON EXITO");
+            this.jButtonProcesar.setEnabled(false);
+            
+            
+            ListarPedidos lisPe = new ListarPedidos();
+            objPla = this.objManPla.NuevoPlato(this.jTable1.getValueAt(0, 0), this.jTable1.getValueAt(0, 1), 
+                    this.jTable1.getValueAt(0, 2), objPed);
+            
+            this.objManPla.AgregarPlato(ArrayPlatoKfc, this.jTable1.getValueAt(0, 0), this.jTable1.getValueAt(0, 1), 
+                    this.jTable1.getValueAt(0, 2), objPed);
+            
+            JOptionPane.showMessageDialog(null, "USUARIO REGISTRADO CON EXITO");
+        try {
+            //        System.out.println(objPer.toString());
+//        System.out.println(objCli.toString());
+            lisPe.escribirPedidos(objPla);
+        } catch (IOException ex) {
+            Logger.getLogger(Pantalla_Registro.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+            Pantalla_Factura2 objPanFac = new Pantalla_Factura2();
+            objPanFac.setVisible(true);
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "SELECCIONE OTROS PEDIDOS");
+            this.jButtonProcesar.setEnabled(true);
+            jButtonProcesarActionPerformed(evt);
+            aux = aux + valorActu;
+            this.jTextFieldTotalPagar.setText(Integer.toString(aux));
+            System.out.println("Valor actual "+valorActu);
+            System.out.println("Valor nuevo "+aux);
+        }
+        
+        
+           
+        
+    }//GEN-LAST:event_jButtonEnviarPedidoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,20 +338,21 @@ public class Pantalla_Kfc extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Pantalla_Kfc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pantalla_Eleccion_Restaurante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Pantalla_Kfc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pantalla_Eleccion_Restaurante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Pantalla_Kfc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pantalla_Eleccion_Restaurante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Pantalla_Kfc.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pantalla_Eleccion_Restaurante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Pantalla_Kfc().setVisible(true);
+                new Pantalla_Eleccion_Restaurante().setVisible(true);
             }
         });
     }
@@ -263,7 +361,10 @@ public class Pantalla_Kfc extends javax.swing.JFrame {
     private javax.swing.JButton jButtonEnviarPedido;
     private javax.swing.JButton jButtonListar;
     private javax.swing.JButton jButtonProcesar;
+    private javax.swing.JComboBox<String> jComboBoxRest;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -275,6 +376,7 @@ public class Pantalla_Kfc extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSpinner jSpinner1;
@@ -282,6 +384,7 @@ public class Pantalla_Kfc extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextAreaDetalle;
     private javax.swing.JTextField jTextFieldCantidad;
     private javax.swing.JTextField jTextFieldCombo;
+    private javax.swing.JTextField jTextFieldNumMesa;
     private javax.swing.JTextField jTextFieldPrecioUnitario;
     private javax.swing.JTextField jTextFieldTotalPagar;
     // End of variables declaration//GEN-END:variables

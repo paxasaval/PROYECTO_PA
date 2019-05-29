@@ -34,6 +34,11 @@ public class Restaurante {
     public String getHorario_horas() {
         return Horario_horas;
     }
+
+    @Override
+    public String toString() {
+        return "Restaurante{" + "Nombre_Res=" + Nombre_Res + ", Horario_dias=" + Horario_dias + ", Horario_horas=" + Horario_horas + '}';
+    }
     
     
 

@@ -6,19 +6,27 @@ import java.util.*;
 public class Plato {
 
      public String Nombre_Plato;
-    public String Precio;
+    public double Precio;
     public String Detalle;
+    public Pedido pedido;
     
     public Plato() {
     }
 
-    public Plato(String Nombre_Plato, String Precio, String Detalle) {
+    public Plato(String Nombre_Plato, double Precio, String Detalle) {
         this.Nombre_Plato = Nombre_Plato;
         this.Precio = Precio;
         this.Detalle = Detalle;
     }
     
-    public Plato(String Nombre_Plato, String Precio){
+    public Plato(String Nombre_Plato, double Precio, String Detalle, Pedido pedido) {
+        this.Nombre_Plato = Nombre_Plato;
+        this.Precio = Precio;
+        this.Detalle = Detalle;
+        this.pedido = pedido;
+    }
+    
+    public Plato(String Nombre_Plato, double Precio){
         this.Nombre_Plato = Nombre_Plato;
         this.Precio = Precio;
     }
@@ -27,7 +35,7 @@ public class Plato {
         this.Nombre_Plato = Nombre_Plato;
     }
 
-    public void setPrecio(String Precio) {
+    public void setPrecio(double Precio) {
         this.Precio = Precio;
     }
 
@@ -39,7 +47,7 @@ public class Plato {
         return Nombre_Plato;
     }
 
-    public String getPrecio() {
+    public double getPrecio() {
         return Precio;
     }
 

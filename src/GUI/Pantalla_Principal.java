@@ -81,7 +81,7 @@ public class Pantalla_Principal extends javax.swing.JFrame {
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jLabel3.setText("Usuario");
+        jLabel3.setText("cedula");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
@@ -97,6 +97,11 @@ public class Pantalla_Principal extends javax.swing.JFrame {
         jPanel2.add(jPasswordFieldContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, 190, -1));
 
         jButtonIngresar.setText("Ingresar");
+        jButtonIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIngresarActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButtonIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 3, 12)); // NOI18N
@@ -189,6 +194,10 @@ public class Pantalla_Principal extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jTextFieldUsuarioActionPerformed
+
+    private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonIngresarActionPerformed
 
     /**
      * @param args the command line arguments

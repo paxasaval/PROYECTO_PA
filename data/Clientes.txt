@@ -1,1 +1,3 @@
 Paul;Xavier;Sanchez;Valverde;4485715860868875;12345678;Ciudad Alegria Edificio 8, Dept. 201;paxasaval1003@gmail.com;968125982;1105795569
+john;stiven;narvaez;castillo;1234567891234567;12345678;daniel alvarez;johnnarvaez343@gmail.com;980448332;1105761686
+jean;pierre;chuquimarca;flores;8956324568945612;12345678;Lor Operadores;jpchuquimarca@utpl.edu.ec;987463831;1105094021

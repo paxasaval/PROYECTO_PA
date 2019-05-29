@@ -30,7 +30,7 @@ public class Pantalla_Factura2 extends javax.swing.JFrame {
     public Pantalla_Factura2() {
         initComponents();
         ArrayCliente = objManCli.ImportarUsuarios(ArrayCliente);
-        ArrayPlato = objManPla.ImportarCombo(ArrayPlato);
+        ArrayPlato = objManPla.ImportarCombo_Kfc(ArrayPlato);
     }
 
     /**
@@ -156,7 +156,7 @@ public class Pantalla_Factura2 extends javax.swing.JFrame {
         DefaultTableModel modelo2 = new DefaultTableModel(null, columnas2);
         jTableCompra.setModel(modelo2);
         for (Plato objPla : ArrayPlato) {
-            String NewValor2[] = {objPla.getNombre_Plato(), objPla.getPrecio()
+            String NewValor2[] = {objPla.getNombre_Plato(), Integer.toString((int) objPla.getPrecio())
             };
             modelo2.addRow(NewValor2);
         }

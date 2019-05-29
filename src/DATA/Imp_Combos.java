@@ -31,7 +31,7 @@ public class Imp_Combos {
                 st = new StringTokenizer(sCadena, ",");
                 while (st.hasMoreTokens()) {
 //                    Restaurante objTmpCli = new Restaurante(st.nextToken(),st.nextToken(), st.nextToken());
-                    Plato objTmpPla = new Plato(st.nextToken(), (st.nextToken()), st.nextToken());
+                    Plato objTmpPla = new Plato(st.nextToken(), Integer.valueOf(st.nextToken()), st.nextToken());
                     ArrayPlatoKfc.add(objTmpPla);
                 }
             }
@@ -47,5 +47,35 @@ public class Imp_Combos {
             }
         }
         return ArrayPlatoKfc;
+    }
+    
+    public ArrayList<Plato> Combos_Fogon(ArrayList<Plato> ArrayPlatoFogon) {
+        File f = new File("data/Combos_Fogon.txt");
+        StringTokenizer st;
+        Scanner entrada = null;
+        String sCadena;
+        try {
+            entrada = new Scanner(f);
+            while (entrada.hasNext()) {
+                sCadena = entrada.nextLine();
+                st = new StringTokenizer(sCadena, ",");
+                while (st.hasMoreTokens()) {
+//                    Restaurante objTmpCli = new Restaurante(st.nextToken(),st.nextToken(), st.nextToken());
+                    Plato objTmpPla = new Plato(st.nextToken(), Integer.valueOf(st.nextToken()), st.nextToken());
+                    ArrayPlatoFogon.add(objTmpPla);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (null != entrada) {
+                    entrada.close();
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+        return ArrayPlatoFogon;
     }
 }
