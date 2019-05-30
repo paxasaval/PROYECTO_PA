@@ -10,6 +10,7 @@ import Clases.Usuario;
 import DATA.Imp_Usuarios;
 import DATA.PreListar;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,6 +33,19 @@ public class ManUsuario {
         Imp_Usuarios objImpUsu = new Imp_Usuarios();
         objImpUsu.LeerUsers(usuario, user, pass);
         return objImpUsu;
+    }
+    
+    public void ValidarUsuario (String usuarios[], String user, String pwd){
+        boolean encontrado = false;
+        for (int i = 0; i < usuarios.length; i++) {
+            if (usuarios[i].equalsIgnoreCase(user) && usuarios[i+1].equals(pwd)){
+                encontrado = true;
+                JOptionPane.showMessageDialog(null, "INICIO DE SESIÓN EXITOSO");
+            }
+        }
+        if(encontrado == false){
+            JOptionPane.showMessageDialog(null, "USUARIO Y/O CONTRASEÑA INCORRECTOS");
+        }
     }
 
 }

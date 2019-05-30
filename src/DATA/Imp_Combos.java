@@ -31,7 +31,7 @@ public class Imp_Combos {
                 st = new StringTokenizer(sCadena, ",");
                 while (st.hasMoreTokens()) {
 //                    Restaurante objTmpCli = new Restaurante(st.nextToken(),st.nextToken(), st.nextToken());
-                    Plato objTmpPla = new Plato(st.nextToken(), Integer.valueOf(st.nextToken()), st.nextToken());
+                    Plato objTmpPla = new Plato(st.nextToken(), Double.valueOf(st.nextToken()), st.nextToken());
                     ArrayPlatoKfc.add(objTmpPla);
                 }
             }
