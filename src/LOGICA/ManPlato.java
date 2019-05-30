@@ -22,9 +22,20 @@ public class ManPlato {
         return objPla;
     }
     
+    public Plato RegistrarPlato(String Nombre_Plato, double Precio, String Detalle){
+        Plato objPla = new Plato(Nombre_Plato, Precio);
+        return objPla;
+    }
+    
     
     public ArrayList<Plato> AgregarPlato (ArrayList ArrayPlato, String Nombre_Plato, double Precio, String Detalle, Pedido objPed){
         Plato objPla = new Plato(Nombre_Plato, Precio, Detalle, objPed);
+        ArrayPlato.add(objPla);
+        return ArrayPlato;
+    }
+    
+    public ArrayList<Plato> AñadirPlato (ArrayList ArrayPlato, String Nombre_Plato, double Precio, String Detalle){
+        Plato objPla = new Plato(Nombre_Plato, Precio, Detalle);
         ArrayPlato.add(objPla);
         return ArrayPlato;
     }

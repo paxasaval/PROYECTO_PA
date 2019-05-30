@@ -97,7 +97,7 @@ public class ListarCliente {
         FileWriter escribir;
         PrintWriter linea;
 
-        archivo = new File("data/Usuarios1.txt");
+        archivo = new File("data/Usuarios2.txt");
 
         if (!archivo.exists()) {
             try {
@@ -115,7 +115,7 @@ public class ListarCliente {
 
                 escribir = new FileWriter(archivo, true);
                 linea = new PrintWriter(escribir);
-                linea.println("," + usuario.getCedula() + "," + usuario.getClaveAcceso());
+                linea.println(usuario.getCedula() + "\n" + usuario.getClaveAcceso());
                 linea.close();
                 escribir.close();
             } catch (FileNotFoundException ex) {

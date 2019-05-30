@@ -214,17 +214,17 @@ public class Pantalla_Registro extends javax.swing.JFrame {
             //        System.out.println(objPer.toString());
 //        System.out.println(objCli.toString());
             lis.escribirCliente(objCli);
-            
-        } catch (IOException ex) {
-            Logger.getLogger(Pantalla_Registro.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            //        System.out.println(objPer.toString());
-//        System.out.println(objCli.toString());
             lis.escribirUsuario(objUsu);
         } catch (IOException ex) {
             Logger.getLogger(Pantalla_Registro.class.getName()).log(Level.SEVERE, null, ex);
         }
+//        try {
+//            //        System.out.println(objPer.toString());
+////        System.out.println(objCli.toString());
+//            lis.escribirUsuario(objUsu);
+//        } catch (IOException ex) {
+//            Logger.getLogger(Pantalla_Registro.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_jButtonRegistrarseActionPerformed
 
     private void jButtonRevisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRevisarActionPerformed
