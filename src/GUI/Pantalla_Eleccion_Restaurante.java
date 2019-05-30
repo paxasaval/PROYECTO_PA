@@ -278,44 +278,44 @@ public class Pantalla_Eleccion_Restaurante extends javax.swing.JFrame {
 
     private void jButtonEnviarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnviarPedidoActionPerformed
         // TODO add your handling code here:
-        int aux=0; 
-        int valorActu = Integer.valueOf(this.jTextFieldTotalPagar.getText());
-        
-        
-        if(JOptionPane.showConfirmDialog(null, "¿ESTA SEGURO DE SU PEDIDO?", "\tALERTA DE CAMBIO", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
-            JOptionPane.showMessageDialog(null, "SE ENVIO SU PEDIDO CON EXITO");
-            this.jButtonProcesar.setEnabled(false);
-            
-            
-            ListarPedidos lisPe = new ListarPedidos();
-            objPla = this.objManPla.NuevoPlato(this.jTable1.getValueAt(0, 0), this.jTable1.getValueAt(0, 1), 
-                    this.jTable1.getValueAt(0, 2), objPed);
-            
-            this.objManPla.AgregarPlato(ArrayPlatoKfc, this.jTable1.getValueAt(0, 0), this.jTable1.getValueAt(0, 1), 
-                    this.jTable1.getValueAt(0, 2), objPed);  
-            
-            JOptionPane.showMessageDialog(null, "ORDEN ENVIADA CON EXITO");
-        try {
-            //        System.out.println(objPer.toString());
-//        System.out.println(objCli.toString());
-            lisPe.escribirPedidos(objPla);
-        } catch (IOException ex) {
-            Logger.getLogger(Pantalla_Registro.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
-            Pantalla_Factura2 objPanFac = new Pantalla_Factura2();
-            objPanFac.setVisible(true);
-            dispose();
-        } else {
-            JOptionPane.showMessageDialog(null, "SELECCIONE OTROS PEDIDOS");
-            this.jButtonProcesar.setEnabled(true);
-            jButtonProcesarActionPerformed(evt);
-            aux = aux + valorActu;
-            this.jTextFieldTotalPagar.setText(Integer.toString(aux));
-            System.out.println("Valor actual "+valorActu);
-            System.out.println("Valor nuevo "+aux);
-        }
-        
+//        int aux=0; 
+//        int valorActu = Integer.valueOf(this.jTextFieldTotalPagar.getText());
+//        
+//        
+//        if(JOptionPane.showConfirmDialog(null, "¿ESTA SEGURO DE SU PEDIDO?", "\tALERTA DE CAMBIO", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
+//            JOptionPane.showMessageDialog(null, "SE ENVIO SU PEDIDO CON EXITO");
+//            this.jButtonProcesar.setEnabled(false);
+//            
+//            
+////            ListarPedidos lisPe = new ListarPedidos();
+////            objPla = this.objManPla.NuevoPlato(this.jTable1.getValueAt(0, 0), this.jTable1.getValueAt(0, 1), 
+////                    this.jTable1.getValueAt(0, 2), objPed);
+////            
+////            this.objManPla.AgregarPlato(ArrayPlatoKfc, this.jTable1.getValueAt(0, 0), this.jTable1.getValueAt(0, 1), 
+////                    this.jTable1.getValueAt(0, 2), objPed);  
+//            
+//            JOptionPane.showMessageDialog(null, "ORDEN ENVIADA CON EXITO");
+////        try {
+////            //        System.out.println(objPer.toString());
+//////        System.out.println(objCli.toString());
+////            lisPe.escribirPedidos(objPla);
+////        } catch (IOException ex) {
+////            Logger.getLogger(Pantalla_Registro.class.getName()).log(Level.SEVERE, null, ex);
+////        }
+//            
+//            Pantalla_Factura2 objPanFac = new Pantalla_Factura2();
+//            objPanFac.setVisible(true);
+//            dispose();
+//        } else {
+//            JOptionPane.showMessageDialog(null, "SELECCIONE OTROS PEDIDOS");
+//            this.jButtonProcesar.setEnabled(true);
+//            jButtonProcesarActionPerformed(evt);
+//            aux = aux + valorActu;
+//            this.jTextFieldTotalPagar.setText(Integer.toString(aux));
+//            System.out.println("Valor actual "+valorActu);
+//            System.out.println("Valor nuevo "+aux);
+//        }
+//        
         
            
         

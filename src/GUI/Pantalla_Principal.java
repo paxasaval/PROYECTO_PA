@@ -26,6 +26,7 @@ public class Pantalla_Principal extends javax.swing.JFrame {
     ManCliente objManCli = new ManCliente();
     ManUsuario objManUsu = new ManUsuario();
     String [] usuarios = null;
+    String user, pass;
 
     /**
      * Creates new form Pantalla Principal
@@ -33,6 +34,7 @@ public class Pantalla_Principal extends javax.swing.JFrame {
     public Pantalla_Principal() {
         initComponents();
         ArrayRestaurante = objManRes.ImportarPreVisualizacion(ArrayRestaurante);
+        ArrayUsuario = objManUsu.ImportarUsuarios(ArrayUsuario, user, pass);
      
 
     }
@@ -202,7 +204,7 @@ public class Pantalla_Principal extends javax.swing.JFrame {
     private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
         // TODO add your handling code here:
         Imp_Usuarios objImpUsu = new Imp_Usuarios();
-        objImpUsu.LeerUsers(usuarios, this.jTextFieldUsuario.getText(), this.jPasswordFieldContraseña.getText());     
+        objImpUsu.LeerUsers(ArrayUsuario, this.jTextFieldUsuario.getText(), this.jPasswordFieldContraseña.getText());
     }//GEN-LAST:event_jButtonIngresarActionPerformed
 
     /**

@@ -28,10 +28,10 @@ public class ManUsuario {
         return ArrayUsuario;
     }
     
-    public Imp_Usuarios ImportarUsuarios(String [] usuario, String user, String pass){
+    public ArrayList<Usuario> ImportarUsuarios(ArrayList<Usuario> ArrayUsuarios, String user, String pass){
         Imp_Usuarios objImpUsu = new Imp_Usuarios();
-        objImpUsu.LeerUsers(usuario, user, pass);
-        return objImpUsu;
+        objImpUsu.LeerUsers(ArrayUsuarios, user, pass);
+        return ArrayUsuarios;
     }
     
 }

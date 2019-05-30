@@ -28,6 +28,7 @@ public class Pantalla_Registro_Platos extends javax.swing.JFrame {
      */
     public Pantalla_Registro_Platos() {
         initComponents();
+        
     }
 
     /**
@@ -153,7 +154,7 @@ public class Pantalla_Registro_Platos extends javax.swing.JFrame {
 
                 this.objManPla.AñadirPlato(ArrayPlato, this.jTextFieldCombo.getText(), Integer.valueOf(this.jTextFieldPrecio.getText()),
                         this.jTextField1.getText());
-
+//                Pantalla_Eleccion_Restaurante objPanRes = new Pantalla_Eleccion_Restaurante();
                 System.out.println("PLATO REGISTRADO CON EXITO");
                 try {
                     //        System.out.println(objPer.toString());
@@ -164,22 +165,23 @@ public class Pantalla_Registro_Platos extends javax.swing.JFrame {
                 }
             }
             
-            if (this.jComboBox1.getSelectedIndex() == 2) {
-                objPla = this.objManPla.RegistrarPlato(this.jTextFieldCombo.getText(), Integer.valueOf((this.jTextFieldPrecio.getText())),
-                        this.jTextField1.getText());
-
-                this.objManPla.AñadirPlato(ArrayPlato, this.jTextFieldCombo.getText(), Integer.valueOf(this.jTextFieldPrecio.getText()),
-                        this.jTextField1.getText());
-
-                System.out.println("PLATO REGISTRADO CON EXITO");
-                try {
-                    //        System.out.println(objPer.toString());
-//        System.out.println(objCli.toString());
-                    objLisPla.escribirPlatosFogon(objPla);
-                } catch (IOException ex) {
-                    Logger.getLogger(Pantalla_Registro.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
+//            if (this.jComboBox1.getSelectedIndex() == 2) {
+//                objPla = this.objManPla.RegistrarPlato(this.jTextFieldCombo.getText(), Integer.valueOf((this.jTextFieldPrecio.getText())),
+//                        this.jTextField1.getText());
+//
+//                this.objManPla.AñadirPlato(ArrayPlato, this.jTextFieldCombo.getText(), Integer.valueOf(this.jTextFieldPrecio.getText()),
+//                        this.jTextField1.getText());
+//                
+////                Pantalla_Eleccion_Restaurante objPanRes = new Pantalla_Eleccion_Restaurante();
+//                System.out.println("PLATO REGISTRADO CON EXITO");
+//                try {
+//                    //        System.out.println(objPer.toString());
+////        System.out.println(objCli.toString());
+//                    objLisPla.escribirPlatosFogon(objPla);
+//                } catch (IOException ex) {
+//                    Logger.getLogger(Pantalla_Registro.class.getName()).log(Level.SEVERE, null, ex);
+//                }
+//            }
             
         }
     }//GEN-LAST:event_jButtonProcesarActionPerformed

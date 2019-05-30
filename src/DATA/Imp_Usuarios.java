@@ -40,11 +40,11 @@ public class Imp_Usuarios {
 //                sCadena = entrada.nextLine();
 //                st = new StringTokenizer(sCadena, ",");
 //                while (st.hasMoreTokens()) {
-//                    Restaurante objTmpCli = new Restaurante(st.nextToken(),st.nextToken(), st.nextToken());
+//                    
 //                    Usuario objTmpUsu = new Usuario(st.nextToken(), Integer.toString(Integer.valueOf(st.nextToken())));
 //                    ArrayUsuario.add(objTmpUsu);
-//                    objVal.ValidarUsuario(usuario, st.nextToken(), Integer.toString(Integer.valueOf(st.nextToken())));
-//                    usuario[i++] = st.hasMoreTokens;
+//                    objVal.ValidarUsuario2(ArrayUsuario, st.nextToken(), Integer.toString(Integer.valueOf(st.nextToken())));
+//                    usuario[i++] = st.hasMoreTokens();
 //                }
 //            }
 //        } catch (FileNotFoundException e) {
@@ -60,14 +60,14 @@ public class Imp_Usuarios {
 //        }
 //        return ArrayUsuario;
 //    }
-    public void LeerUsers (String [] usuarios, String user, String pass){
+    public ArrayList<Usuario> LeerUsers (ArrayList<Usuario> ArrayUsuarios, String user, String pass){
         FileReader fr=null;
         try {
             int nLineas=0;
             int i = 0;
-//            String [] usuarios = null;
+            String [] usuarios = null;
             String linea;
-//            sc = new Scanner (new File("data/Usuarios2.txt"));
+            sc = new Scanner (new File("data/Usuarios2.txt"));
             File f = new File("data/Usuarios2.txt");
             
             fr = new FileReader(f);
@@ -87,10 +87,10 @@ public class Imp_Usuarios {
 //            while(sc.hasNextLine()){
 //                usuarios[i++] = sc.nextLine();
 //            }
-            
+//            
             Usuario objTmpUsu = new Usuario(objUsu.getCedula(), objUsu.getClaveAcceso());
             Validacion val = new Validacion();
-            val.ValidarUsuario(usuarios, user, pass);
+            val.ValidarUsuario2(ArrayUsuarios, user, pass);
             
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Imp_Usuarios.class.getName()).log(Level.SEVERE, null, ex);
@@ -101,6 +101,7 @@ public class Imp_Usuarios {
                 Logger.getLogger(Imp_Usuarios.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        return ArrayUsuarios;
     }
     
 }
