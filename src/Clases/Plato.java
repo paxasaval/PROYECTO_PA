@@ -4,12 +4,12 @@ package Clases;
 import java.util.*;
 
 public class Plato {
-
-     public String Nombre_Plato;
+    
+    public String Nombre_Plato;
     public double Precio;
     public String Detalle;
     public Pedido pedido;
-    
+ 
     public Plato() {
     }
 

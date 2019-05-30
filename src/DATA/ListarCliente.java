@@ -8,6 +8,7 @@ package DATA;
 import Clases.Cliente;
 import Clases.Restaurante;
 import Clases.Usuario;
+import LOGICA.ManCliente;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -26,10 +27,12 @@ import javax.annotation.processing.FilerException;
  */
 public class ListarCliente {
 
-    public static ArrayList<Cliente> ImportarUsuarios(ArrayList<Cliente> ArrayCliente) {
+    public ArrayList<Cliente> ImportarUsuarios(ArrayList<Cliente> ArrayCliente) {
 //        ArrayList<Restaurante> ArrayRestaurante = new ArrayList<Restaurante>();
 //        File f = new File("C:/Users/Jorge/Documents/NetBeansProjects/PROYECTO/Lista_Restaurante.txt");        
-        File f = new File("data/Usuarios_Factura.txt");
+        File f = new File("data/clientes.txt");
+        Cliente objTmpCli = new Cliente();
+        ManCliente objManCliente = new ManCliente();
         StringTokenizer st;
         Scanner entrada = null;
         String sCadena;
@@ -37,10 +40,10 @@ public class ListarCliente {
             entrada = new Scanner(f);
             while (entrada.hasNext()) {
                 sCadena = entrada.nextLine();
-                st = new StringTokenizer(sCadena, ",");
+                st = new StringTokenizer(sCadena, ";");
                 while (st.hasMoreTokens()) {
 //                    Restaurante objTmpCli = new Restaurante(st.nextToken(),st.nextToken(), st.nextToken());
-                    Cliente objTmpCli = new Cliente(st.nextToken(), st.nextToken(), st.nextToken(), st.nextToken(), st.nextToken());
+                    objTmpCli = objManCliente.NuevoCliente(Long.parseLong(st.nextToken()), Integer.parseInt(st.nextToken()), st.nextToken(), st.nextToken(), Integer.parseInt(st.nextToken()), st.nextToken(), st.nextToken(), st.nextToken(), st.nextToken(), st.nextToken());
                     ArrayCliente.add(objTmpCli);
                 }
             }

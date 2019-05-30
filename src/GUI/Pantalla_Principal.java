@@ -5,9 +5,11 @@
  */
 package GUI;
 
+import Clases.Cliente;
 import Clases.Restaurante;
 import Clases.Usuario;
 import DATA.Imp_Usuarios;
+import DATA.ListarCliente;
 import LOGICA.ManCliente;
 import LOGICA.ManRestaurante;
 import LOGICA.ManUsuario;
@@ -203,8 +205,15 @@ public class Pantalla_Principal extends javax.swing.JFrame {
 
     private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
         // TODO add your handling code here:
+
         Imp_Usuarios objImpUsu = new Imp_Usuarios();
         objImpUsu.LeerUsers(ArrayUsuario, this.jTextFieldUsuario.getText(), this.jPasswordFieldContraseña.getText());
+
+        ListarCliente objImpCliente = new ListarCliente();
+        ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
+        listaClientes = objImpCliente.ImportarUsuarios(listaClientes);
+        System.out.println(listaClientes);    
+
     }//GEN-LAST:event_jButtonIngresarActionPerformed
 
     /**

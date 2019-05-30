@@ -3,10 +3,31 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Usuario/Desktop/PROYECTO_PA/src/GUI/Pantalla_Registro.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/PROYECTO_PA/src/GUI/Pantalla_Principal.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/PROYECTO_PA/src/GUI/Pantalla_Factura.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/PROYECTO_PA/src/DATA/ListarCliente.java</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/DATA/Imp_Combos.java</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/Clases/Plato.java</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/DATA/Imp_Pedidos.java</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/GUI/Pantalla_Eleccion_Restaurante.java</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/Clases/Restaurante.java</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/LOGICA/ManUsuario.java</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/GUI/Pantalla_Principal.java</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/DATA/Restaurantes.txt</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/GUI/Pantalla_Registro_Platos.java</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/GUI/Pantalla_Factura.java</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/DATA/ListarCliente.java</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/Clases/Cajera.java</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/GUI/Pantalla_Registrar_Restaurantes.java</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/LOGICA/ManRestaurante.java</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/DATA/Validacion.java</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/GUI/Pantalla_Registro.java</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/Clases/Usuario.java</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/Clases/Cliente.java</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/GUI/Pantalla_Cajera.java</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/GUI/Pantalla_Factura2.java</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/LOGICA/ManPlato.java</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/LOGICA/ManCliente.java</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/DATA/Clientes.txt</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/DATA/Imp_Usuarios.java</file>
+            <file>file:/D:/UTPL/4to%20CICLO/Programacion%20Avanzada/NetBeansProjects/PROYECTO/src/Clases/Pedido.java</file>
         </group>
     </open-files>
 </project-private>

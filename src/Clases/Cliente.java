@@ -13,7 +13,6 @@ public class Cliente extends Personas {
     public String Direccion;
     public String mail;
     public int telefono;
-    public String usuario;
     public int claveAcceso;
     
     
@@ -93,11 +92,8 @@ public class Cliente extends Personas {
     public int getTelefono() {
         return telefono;
     }
-
-    public String getUsuario() {
-        return usuario;
-    }
-
+    
+    
     public int getClaveAcceso() {
         return claveAcceso;
     }

@@ -10,12 +10,14 @@ import Clases.Plato;
 import Clases.Restaurante;
 import DATA.ListarPedidos;
 import LOGICA.ManPlato;
+import LOGICA.ManRestaurante;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.DefaultComboBoxModel;
 
 /**
  *
@@ -58,6 +60,7 @@ public class Pantalla_Eleccion_Restaurante extends javax.swing.JFrame {
         jSpinner1 = new javax.swing.JSpinner();
         jLabel3 = new javax.swing.JLabel();
         jButtonProcesar = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
         jTextFieldNumMesa = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
@@ -74,9 +77,9 @@ public class Pantalla_Eleccion_Restaurante extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jTextFieldTotalPagar = new javax.swing.JTextField();
         jButtonEnviarPedido = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jComboBoxRest = new javax.swing.JComboBox<>();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jToggleButton1 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -85,16 +88,16 @@ public class Pantalla_Eleccion_Restaurante extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Dialog", 3, 48)); // NOI18N
-        jLabel1.setText("Bienvenidos");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
+        jLabel1.setText("BOULEVAR DEL RIO");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 740, 80));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1280, 80));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jLabel2.setText("Por favor, elija uno de nuestros combos");
+        jLabel2.setText("Seleccione un restaurante ");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -115,7 +118,7 @@ public class Pantalla_Eleccion_Restaurante extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 670, 80));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 1220, 90));
 
         jButtonListar.setText("Listar");
         jButtonListar.addActionListener(new java.awt.event.ActionListener() {
@@ -123,12 +126,12 @@ public class Pantalla_Eleccion_Restaurante extends javax.swing.JFrame {
                 jButtonListarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, -1, -1));
+        jPanel2.add(jButtonListar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 10, -1, -1));
         jPanel2.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 60, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel3.setText("Cantidad a pedir");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
         jButtonProcesar.setText("Procesar");
         jButtonProcesar.addActionListener(new java.awt.event.ActionListener() {
@@ -138,19 +141,21 @@ public class Pantalla_Eleccion_Restaurante extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonProcesar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jLabel11.setText("NÚMERO DE MESA");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, -1, -1));
-        jPanel2.add(jTextFieldNumMesa, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 90, -1));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 140, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 740, 210));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 1280, 210));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("Dialog", 3, 24)); // NOI18N
         jLabel4.setText("DATOS DEL PEDIDO");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel5.setText("Combo (N°)");
@@ -168,50 +173,52 @@ public class Pantalla_Eleccion_Restaurante extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel7.setText("Detalles");
-        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
         jTextAreaDetalle.setEditable(false);
         jTextAreaDetalle.setColumns(20);
         jTextAreaDetalle.setRows(5);
         jScrollPane2.setViewportView(jTextAreaDetalle);
 
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, -1, -1));
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 90, 200, 130));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel8.setText("Precio Unitario");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, -1, -1));
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, -1, -1));
 
         jTextFieldPrecioUnitario.setEditable(false);
-        jPanel3.add(jTextFieldPrecioUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, 90, -1));
+        jPanel3.add(jTextFieldPrecioUnitario, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 90, -1));
 
         jLabel9.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
         jLabel9.setText("Total a pagar");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 130, -1, -1));
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, -1, -1));
 
         jTextFieldTotalPagar.setEditable(false);
-        jPanel3.add(jTextFieldTotalPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 130, 90, -1));
+        jPanel3.add(jTextFieldTotalPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 90, -1));
 
         jButtonEnviarPedido.setText("Enviar Pedido");
-        jButtonEnviarPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEnviarPedidoActionPerformed(evt);
+        jPanel3.add(jButtonEnviarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 210, -1, -1));
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        });
-        jPanel3.add(jButtonEnviarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, -1, -1));
+        ));
+        jScrollPane3.setViewportView(jTable2);
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 740, 270));
+        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, 690, 170));
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jToggleButton1.setSelected(true);
+        jToggleButton1.setText("Cargar a carrito");
+        jPanel3.add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("Dialog", 3, 14)); // NOI18N
-        jLabel10.setText("POR FAVOR, ELIJA UN RESTAURANTE");
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-
-        jComboBoxRest.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-----NINGUNO-----", "KFC", "FOGON GRILL", "ARTESANALE" }));
-        jPanel4.add(jComboBoxRest, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 180, -1));
-
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 740, 80));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 1280, 270));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -222,7 +229,7 @@ public class Pantalla_Eleccion_Restaurante extends javax.swing.JFrame {
         Object columnas[] = {"N° COMBO", "PRECIO COMBO", "DESCRIPCION"};
         DefaultTableModel modelo = new DefaultTableModel(null, columnas);
         jTable1.setModel(modelo);
-        if (this.jComboBoxRest.getSelectedIndex() == 1) {
+        if (this.jComboBox1.getSelectedIndex() == 1) {
             for (Plato objPla : ArrayPlatoKfc) {
                 String NewValor[] = {objPla.getNombre_Plato(), Integer.toString((int) objPla.getPrecio()), objPla.getDetalle()
                 };
@@ -230,9 +237,9 @@ public class Pantalla_Eleccion_Restaurante extends javax.swing.JFrame {
             }
         }
 
-        if (this.jComboBoxRest.getSelectedIndex() == 2) {
+        if (this.jComboBox1.getSelectedIndex() == 2) {
             for (Plato objPla : ArrayPlatoFogon) {
-                String NewValor[] = {objPla.getNombre_Plato(), Integer.toString((int)objPla.getPrecio()), objPla.getDetalle()
+                String NewValor[] = {objPla.getNombre_Plato(), Integer.toString((int) objPla.getPrecio()), objPla.getDetalle()
                 };
                 modelo.addRow(NewValor);
             }
@@ -255,29 +262,34 @@ public class Pantalla_Eleccion_Restaurante extends javax.swing.JFrame {
 
         int Total = 0;
 //        if (this.jComboBoxRest.getSelectedIndex() == 1) {
-            
-            if (valor > 0) {
-                if (this.jTable1.getValueAt(0, 0).equals("Combo1")) {
-                    Total = Integer.valueOf(this.jTextFieldPrecioUnitario.getText()) * valor;
-                    aux = aux + Total;
-                }
-                if (this.jTable1.getValueAt(1, 0).equals("Combo2")) {
-                    Total = Integer.valueOf(this.jTextFieldPrecioUnitario.getText()) * valor;                   
-                }
-                if (this.jTable1.getValueAt(2, 0).equals("Combo3")) {
-                    Total = Integer.valueOf(this.jTextFieldPrecioUnitario.getText()) * valor;
-                    
-                }
-                
+
+        if (valor > 0) {
+            if (this.jTable1.getValueAt(0, 0).equals("Combo1")) {
+                Total = Integer.valueOf(this.jTextFieldPrecioUnitario.getText()) * valor;
+                aux = aux + Total;
             }
+            if (this.jTable1.getValueAt(1, 0).equals("Combo2")) {
+                Total = Integer.valueOf(this.jTextFieldPrecioUnitario.getText()) * valor;
+            }
+            if (this.jTable1.getValueAt(2, 0).equals("Combo3")) {
+                Total = Integer.valueOf(this.jTextFieldPrecioUnitario.getText()) * valor;
+
+            }
+
+        }
 //        }
-        
+
         this.jTextFieldCantidad.setText(this.jSpinner1.getValue().toString());
         this.jTextFieldTotalPagar.setText(Integer.toString((int) Total));
     }//GEN-LAST:event_jButtonProcesarActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
     private void jButtonEnviarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnviarPedidoActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
 //        int aux=0; 
 //        int valorActu = Integer.valueOf(this.jTextFieldTotalPagar.getText());
 //        
@@ -319,6 +331,45 @@ public class Pantalla_Eleccion_Restaurante extends javax.swing.JFrame {
         
            
         
+=======
+        int aux = 0;
+        int valorActu = Integer.valueOf(this.jTextFieldTotalPagar.getText());
+
+        if (JOptionPane.showConfirmDialog(null, "¿ESTA SEGURO DE SU PEDIDO?", "\tALERTA DE CAMBIO", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+            JOptionPane.showMessageDialog(null, "SE ENVIO SU PEDIDO CON EXITO");
+            this.jButtonProcesar.setEnabled(false);
+
+            ListarPedidos lisPe = new ListarPedidos();
+            objPla = this.objManPla.NuevoPlato(this.jTable1.getValueAt(0, 0).toString(), Double.parseDouble(this.jTable1.getValueAt(0, 1).toString()),
+                    this.jTable1.getValueAt(0, 2).toString(), objPed);
+
+            this.objManPla.AgregarPlato(ArrayPlatoKfc, this.jTable1.getValueAt(0, 0).toString(), Double.parseDouble(this.jTable1.getValueAt(0, 1).toString()),
+                    this.jTable1.getValueAt(0, 2).toString(), objPed);
+
+            JOptionPane.showMessageDialog(null, "USUARIO REGISTRADO CON EXITO");
+            try {
+                //        System.out.println(objPer.toString());
+//        System.out.println(objCli.toString());
+                lisPe.escribirPedidos(objPla);
+            } catch (IOException ex) {
+                Logger.getLogger(Pantalla_Registro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            Pantalla_Factura2 objPanFac = new Pantalla_Factura2();
+            objPanFac.setVisible(true);
+            dispose();
+        } else {
+            JOptionPane.showMessageDialog(null, "SELECCIONE OTROS PEDIDOS");
+            this.jButtonProcesar.setEnabled(true);
+            jButtonProcesarActionPerformed(evt);
+            aux = aux + valorActu;
+            this.jTextFieldTotalPagar.setText(Integer.toString(aux));
+            System.out.println("Valor actual " + valorActu);
+            System.out.println("Valor nuevo " + aux);
+        }
+
+
+>>>>>>> 03dae13a3ccf12782e4961c4fdb46ca3316b0b49
     }//GEN-LAST:event_jButtonEnviarPedidoActionPerformed
 
     /**
@@ -328,7 +379,7 @@ public class Pantalla_Eleccion_Restaurante extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -361,7 +412,7 @@ public class Pantalla_Eleccion_Restaurante extends javax.swing.JFrame {
     private javax.swing.JButton jButtonEnviarPedido;
     private javax.swing.JButton jButtonListar;
     private javax.swing.JButton jButtonProcesar;
-    private javax.swing.JComboBox<String> jComboBoxRest;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -379,13 +430,16 @@ public class Pantalla_Eleccion_Restaurante extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextAreaDetalle;
     private javax.swing.JTextField jTextFieldCantidad;
     private javax.swing.JTextField jTextFieldCombo;
     private javax.swing.JTextField jTextFieldNumMesa;
     private javax.swing.JTextField jTextFieldPrecioUnitario;
     private javax.swing.JTextField jTextFieldTotalPagar;
+    private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
 }
