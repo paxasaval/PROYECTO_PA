@@ -18,14 +18,38 @@ public class Pedido {
     public Pedido() {
     }
 
-    public Pedido(int NumOrden, String Estado, int NumMesa, int Tiempo_Espera, Plato plato, Estado estado) {
+    public Pedido(int NumOrden, String Estado, int NumMesa, int Tiempo_Espera, Plato plato) {
         this.NumOrden = NumOrden;
         this.Estado = Estado;
         this.NumMesa = NumMesa;
         this.Tiempo_Espera = Tiempo_Espera;
         this.plato = plato;
-        this.estado = estado;
+        
     }
+
+    public int getNumOrden() {
+        return NumOrden;
+    }
+
+    public String getEstado() {
+        return Estado;
+    }
+
+    public int getNumMesa() {
+        return NumMesa;
+    }
+
+    public int getTiempo_Espera() {
+        return Tiempo_Espera;
+    }
+
+    public Plato getPlato() {
+        return plato;
+    }
+
+//    public Estado getEstado() {
+//        return estado;
+//    }
 
     
     

@@ -5,8 +5,10 @@
  */
 package LOGICA;
 
+import Clases.Pedido;
 import Clases.Plato;
 import DATA.Imp_Combos;
+import DATA.Imp_Pedidos;
 import java.util.ArrayList;
 
 /**
@@ -15,27 +17,40 @@ import java.util.ArrayList;
  */
 public class ManPlato {
     
-    public Plato NuevoPlato(String Nombre_Plato, String Precio, String Detalle){
-        Plato objPla = new Plato(Nombre_Plato, Precio, Detalle);
+    public Plato NuevoPlato(String Nombre_Plato, double Precio, String Detalle, Pedido pedido){
+        Plato objPla = new Plato(Nombre_Plato, Precio, Detalle, pedido);
         return objPla;
     }
     
-    public ArrayList<Plato> AgregarPlato (ArrayList ArrayPlato, String Nombre_Plato, String Precio, String Detalle){
-        Plato objPla = new Plato(Nombre_Plato, Precio, Detalle);
+    
+    public ArrayList<Plato> AgregarPlato (ArrayList ArrayPlato, String Nombre_Plato, double Precio, String Detalle, Pedido objPed){
+        Plato objPla = new Plato(Nombre_Plato, Precio, Detalle, objPed);
         ArrayPlato.add(objPla);
         return ArrayPlato;
     }
     
-    public Plato ModificarPlato (Plato objPla, String Nombre_Plato, String Precio, String Detalle){
+    public Plato ModificarPlato (Plato objPla, String Nombre_Plato, double Precio, String Detalle){
         objPla.setNombre_Plato(Nombre_Plato);
         objPla.setPrecio(Precio);
         objPla.setDetalle(Detalle);
         return objPla;
     }
     
-    public ArrayList<Plato> ImportarCombo (ArrayList<Plato> ArrayPlato){
+    public ArrayList<Plato> ImportarCombo_Kfc (ArrayList<Plato> ArrayPlato){
         Imp_Combos objImpCom = new Imp_Combos();
-        objImpCom.Combos_Kfc(ArrayPlato);
+        objImpCom.Combos_Kfc(ArrayPlato);   
+        return ArrayPlato;
+    }
+    
+    public ArrayList<Plato> ImportarCombo_Fogon (ArrayList<Plato> ArrayPlato){
+        Imp_Combos objImpCom = new Imp_Combos();
+        objImpCom.Combos_Fogon(ArrayPlato);
+        return ArrayPlato;
+    }
+    
+    public ArrayList<Plato> ImportarPedidos (ArrayList<Plato> ArrayPlato){
+        Imp_Pedidos objImpPed = new Imp_Pedidos();
+        objImpPed.PedidosRealizados(ArrayPlato);
         return ArrayPlato;
     }
     
