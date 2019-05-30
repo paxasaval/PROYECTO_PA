@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -123,9 +124,9 @@ public class Pantalla_Registrar_Restaurantes extends javax.swing.JFrame {
         
         this.objManRes.AgregarRestaurante(ArrayRestaurante, this.jTextFieldNombreRes.getText()
                 , this.jTextFieldDia.getText(), this.jTextFieldHora.getText());
-        
-        System.out.println("RESTAURANTE REGISTRADO CON EXITO");
-        
+       Pantalla_Principal objPanPrin = new Pantalla_Principal();
+        JOptionPane.showMessageDialog(null, "RESTAURANTE REGISTRADO CON EXITO");
+             
         try {
             //        System.out.println(objPer.toString());
 //        System.out.println(objCli.toString());

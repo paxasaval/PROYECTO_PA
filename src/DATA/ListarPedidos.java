@@ -43,8 +43,8 @@ public class ListarPedidos {
             
             escribir =new FileWriter(archivo,true);
             linea=new PrintWriter(escribir);
-            linea.println(","+plato.Nombre_Plato+","+plato.Precio+","+plato.Detalle+","+plato.pedido.NumMesa+","+plato.pedido.Tiempo_Espera+","
-            +plato.pedido.NumOrden+","+plato.pedido.estado+",");
+            linea.println(","+plato.Nombre_Plato+","+plato.Precio+","+plato.Detalle+","+plato.pedido.NumMesa+","
+                    +plato.pedido.Tiempo_Espera+","+plato.pedido.NumOrden+","+plato.pedido.estado+",");
              linea.close();
             escribir.close();
             }catch(FileNotFoundException ex){

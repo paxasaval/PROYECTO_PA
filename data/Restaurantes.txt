@@ -1,2 +1,5 @@
 KFC,Lunes-Viernes,07:00-A-19:00,FOGON,Martes-Jueves,08:00-A-20:00,ARTESANALE,MARTES,19:00
 ,TROPI BURGUER,VIERNES,20:00
+,Chifa,Lunes A Miercoles,15:00 A 20:00
+,Krustaseo Kascarudo,Sabados,09:00 A 21:30
+,Salon Lojita,Todos los dias,10:30 A 19:00
